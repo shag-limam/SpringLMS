@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.spark.lms.common.Constants;
 import com.spark.lms.model.Issue;
 import com.spark.lms.model.Member;
+import com.spark.lms.model.User;
 import com.spark.lms.repository.IssueRepository;
 
 @Service
@@ -41,5 +42,8 @@ public class IssueService {
 	
 	public Long getCountByMember(Member member) {
 		return issueRepository.countByMemberAndReturned(member, Constants.BOOK_NOT_RETURNED);
+	}
+	public Long getCountByUser(User user) {
+		return issueRepository.countByUserAndReturned(user, Constants.BOOK_NOT_RETURNED);
 	}
 }

@@ -3,6 +3,7 @@ package com.spark.lms.service;
 import java.util.Date;
 import java.util.List;
 
+import com.spark.lms.model.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,9 @@ public class UserService {
 
 	@Autowired
 	private UserRepository userRepository;
+
+	@Autowired
+	private IssueService issueService;
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -35,7 +39,8 @@ public class UserService {
 	public User getById(Long id) {
 		return userRepository.findById(id).get();
 	}
-	
+
+
 	public User addNew(User user) {
 		user.setPassword( passwordEncoder.encode(user.getPassword()) );
 		user.setCreatedDate( new Date() );
@@ -43,11 +48,14 @@ public class UserService {
 		user.setActive(1);
 		return userRepository.save(user);
 	}
-	
-	public User update(User user) {
-		user.setLastModifiedDate( new Date() );
+
+	public User save(User user) {
 		return userRepository.save( user );
 	}
+//	public User update(User user) {
+//		user.setLastModifiedDate( new Date() );
+//		return userRepository.save( user );
+//	}
 	
 	public void delete(User user) {
 		userRepository.delete(user);
@@ -56,4 +64,10 @@ public class UserService {
 	public void delete(Long id) {
 		userRepository.deleteById(id);
 	}
+
+	public boolean hasUsage(User user) {
+		return issueService.getCountByUser(user) > 0;
+	}
+
+
 }

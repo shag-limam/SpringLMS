@@ -50,6 +50,11 @@ public class Issue implements Serializable {
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "member_id")
 	private Member member;
+
+	@JsonIgnore
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
+	private User user;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "issue", cascade = CascadeType.ALL)

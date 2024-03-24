@@ -10,12 +10,19 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.spark.lms.common.Constants;
 
+import java.util.List;
+
 
 @Controller
 public class RegisterController {
 
     @Autowired
     private UserService userService;
+
+    @ModelAttribute(name = "userTypes")
+    public List<String> userTypes() {
+        return Constants.USERS_TYPES;
+    }
 
     @GetMapping("/register")
     public String registerForm(Model model) {

@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
@@ -24,8 +25,11 @@ public class User implements Serializable {
 
 	public User() {}
 
-	public User(@NotNull String displayName, @NotNull String username, @NotNull String password, @NotNull String role) {
+
+
+	public User(@NotNull String firstName,@NotNull String displayName, @NotNull String username, @NotNull String password, @NotNull String role) {
 		super();
+		this.firstName =firstName;
 		this.displayName = displayName;
 		this.username = username;
 		this.password = password;
@@ -37,8 +41,19 @@ public class User implements Serializable {
 	@Column(name = "id")
 	private Long id;
 
-	@NotNull
-	@Column(name = "display_name")
+	@NotEmpty(message = "*Please enter fisrt name")
+	@NotNull(message = "*Please enter fisrt name")
+	@Column(name = "firstName")
+	private String firstName;
+//	@Column(name = "last_name")
+//	private String lastName;
+
+//	@Column(name = "email")
+//	private String email;
+//
+	@NotEmpty(message = "*Please enter display name")
+	@NotNull(message = "*Please enter display name")
+	@Column(name = "displayName")
 	private String displayName;
 
 	@NotNull
@@ -49,17 +64,19 @@ public class User implements Serializable {
 	@Column(name = "password")
 	private String password;
 
-	@NotNull
+	//@NotNull
 	@Column(name = "active")
 	private Integer active;
+
+	//@NotNull
+	@Column(name = "created_date")
+	private Date createdDate;
 
 	@NotNull
 	@Column(name = "role")
 	private String role;
 
-	@NotNull
-	@Column(name = "created_date")
-	private Date createdDate;
+
 
 	@Column(name = "last_modified_date")
 	private Date lastModifiedDate;
@@ -76,14 +93,24 @@ public class User implements Serializable {
 		return displayName;
 	}
 
-	public void setDisplayName(String displayName) {
-		this.displayName = displayName;
-	}
+
 
 	public String getUsername() {
 		return username;
 	}
 
+
+	public String getFirstName() {return firstName;}
+
+
+
+//	public String getLastName() {return lastName;}
+//
+//	public void setLastName(String lastName) {this.lastName = lastName;}
+
+//	public String getEmail() {return email;}
+//
+//	public void setEmail(String email) {this.email = email;}
 	public void setUsername(String username) {
 		this.username = username;
 	}
@@ -119,6 +146,10 @@ public class User implements Serializable {
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
+	public void setFirstName(String firstName) {this.firstName = firstName;}
 
 	public Date getLastModifiedDate() {
 		return lastModifiedDate;

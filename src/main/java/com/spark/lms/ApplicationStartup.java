@@ -24,8 +24,8 @@ public class ApplicationStartup implements ApplicationListener<ApplicationReadyE
     private void initDatabaseEntities() {
 
         if( userService.getAllUsers().size() == 0) {
-            userService.addNew(new User("Mr. Admin", "admin", "admin", Constants.ROLE_ADMIN));
-            userService.addNew(new User("Mr. Librarian", "librarian", "librarian", Constants.ROLE_LIBRARIAN));
+            userService.addNew(new User("Ad","Mr. Admin", "admin", "admin", Constants.ROLE_ADMIN));
+            userService.addNew(new User("Us","Mr. Librarian", "librarian", "librarian", Constants.ROLE_LIBRARIAN));
         }
 
     }
