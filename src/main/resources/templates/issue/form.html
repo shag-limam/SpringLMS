@@ -45,11 +45,11 @@
 										<div class="col-sm-5">
 										
 											<div class="form-group">
-						                    	<label class="control-label col-md-4 col-sm-4 col-xs-12">Member Type</label>
+						                    	<label class="control-label col-md-4 col-sm-4 col-xs-12">User Type</label>
 						                        <div class="col-md-8 col-sm-8 col-xs-12">
-						                        	<select class="form-control" id="memberTypeSel">
-						                        		<option value="">-- Select Member Type --</option>
-						                        		<option th:each="mt : ${memberTypes}" th:value="${mt}" th:text="${mt}"></option>
+						                        	<select class="form-control" id="userTypeSel">
+						                        		<option value="">-- Select User Type --</option>
+						                        		<option th:each="mt : ${userTypes}" th:value="${mt}" th:text="${mt}"></option>
 						                        	</select>
 						                        </div>
 					                 		</div>
@@ -57,8 +57,8 @@
 					                 		<div class="form-group">
 						                    	<label class="control-label col-md-4 col-sm-4 col-xs-12">Member</label>
 						                        <div class="col-md-8 col-sm-8 col-xs-12">
-						                        	<select class="form-control" id="memberSel">
-						                        		<option value="">-- Select Member --</option>
+						                        	<select class="form-control" id="userSel">
+						                        		<option value="">-- Select User --</option>
 						                        	</select>
 						                        </div>
 					                 		</div>

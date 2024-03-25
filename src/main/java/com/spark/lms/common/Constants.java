@@ -10,13 +10,23 @@ public class Constants {
 
 	public static final String ROLE_USER = "User";
 
+	public static final Long AC_USER = 1L;
+	public static final Long DAC_USER = 0L;
+
 	public static final String MEMBER_PARENT = "Parent";
 	public static final String MEMBER_STUDENT = "Student";
 	public static final String MEMBER_OTHER = "Other";
 
+
+
 	public static final List<String> USERS_TYPES = new ArrayList<String>() {{
 		add(ROLE_ADMIN);
 		add(ROLE_USER);
+	}};
+
+	public static final List<Long> USERS_ACTIV = new ArrayList<Long>() {{
+		add(AC_USER);
+		add(DAC_USER);
 	}};
 	public static final List<String> MEMBER_TYPES = new ArrayList<String>() {{
 	    add(MEMBER_PARENT);

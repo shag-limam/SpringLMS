@@ -36,6 +36,11 @@ public class UserController {
         return Constants.USERS_TYPES;
     }
 
+    @ModelAttribute(name = "userActive")
+    public List<Long> userActive() {
+        return Constants.USERS_ACTIV;
+    }
+
     @RequestMapping(value = {"/", "/list"},  method = RequestMethod.GET)
     public String showUsersPage(Model model) {
         model.addAttribute("users", userService.getAllUsers());
@@ -60,7 +65,31 @@ public class UserController {
     }
 
 
+
 //
+//    @RequestMapping(value = "/save", method = RequestMethod.POST)
+//    public String saveUser(@Valid User user, BindingResult bindingResult, final RedirectAttributes redirectAttributes) {
+//        if (bindingResult.hasErrors()) {
+//            // Il y a des erreurs de validation
+//            for (FieldError error : bindingResult.getFieldErrors()) {
+//                // Imprimez chaque erreur dans la console
+//                System.out.println("Error in field " + error.getField() + ": " + error.getDefaultMessage());
+//            }
+//            // Redirigez vers le formulaire utilisateur avec les erreurs
+//            return "user/form"; // Assurez-vous que le chemin est correct, sans le slash initial
+//        }
+//
+//        // Aucune erreur de validation, enregistrez ou mettez à jour l'utilisateur
+//        if (user.getId() == null) {
+//            userService.addNew(user);
+//            redirectAttributes.addFlashAttribute("successMsg", "'" + user.getFirstName() + " " + user.getDisplayName() + "' is added as a new user.");
+//            return "redirect:/user/add"; // Redirigez vers la page d'ajout d'utilisateur après l'ajout réussi
+//        } else {
+//            User updatedUser = userService.save(user);
+//            redirectAttributes.addFlashAttribute("successMsg", "Changes for '" + user.getFirstName() + " " + user.getDisplayName() + "' are saved successfully.");
+//            return "redirect:/user/edit/" + updatedUser.getId(); // Redirigez vers la page d'édition d'utilisateur après la mise à jour réussie
+//        }
+//    }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveUser(@Valid User user, BindingResult bindingResult, final RedirectAttributes redirectAttributes) {
@@ -70,41 +99,25 @@ public class UserController {
                 // Imprimez chaque erreur dans la console
                 System.out.println("Error in field " + error.getField() + ": " + error.getDefaultMessage());
             }
-            // Redirigez vers le formulaire utilisateur avec les erreurs
             return "user/form"; // Assurez-vous que le chemin est correct, sans le slash initial
         }
 
-        // Aucune erreur de validation, enregistrez ou mettez à jour l'utilisateur
-        if (user.getId() == null) {
-            userService.addNew(user);
-            redirectAttributes.addFlashAttribute("successMsg", "'" + user.getFirstName() + " " + user.getDisplayName() + "' is added as a new user.");
-            return "redirect:/user/add"; // Redirigez vers la page d'ajout d'utilisateur après l'ajout réussi
-        } else {
-            User updatedUser = userService.save(user);
+
+        if (user.getId() != null) {
+            User updatedUser = userService.addOrUpdateUser(user);
             redirectAttributes.addFlashAttribute("successMsg", "Changes for '" + user.getFirstName() + " " + user.getDisplayName() + "' are saved successfully.");
             return "redirect:/user/edit/" + updatedUser.getId(); // Redirigez vers la page d'édition d'utilisateur après la mise à jour réussie
         }
-    }
+        else {
+            userService.addUser(user);
+            redirectAttributes.addFlashAttribute("successMsg", "'" + user.getFirstName() + " " + user.getDisplayName() + "' is added as a new user.");
+            return "redirect:/user/add"; // Redirigez vers la page d'ajout d'utilisateur après l'ajout réussi
 
-//    @RequestMapping(value = "/save", method = RequestMethod.POST)
-//    public String saveUser(@Valid User user, BindingResult bindingResult, final RedirectAttributes redirectAttributes) {
-//        if( bindingResult.hasErrors() ) {
-//            for (ObjectError error : bindingResult.getAllErrors()) {
-//                System.out.println("Error: " + error.getDefaultMessage());
-//            }
-//            return "/user/form"; // Rediriger vers le formulaire d'utilisateur en cas d'erreur
-//        }
-//
-//        if( user.getId() == null ) {
-//            userService.addNew(user);
-//            redirectAttributes.addFlashAttribute("successMsg", "'" + user.getFirstName() + " " + user.getDisplayName() + "' is added as a new user.");
-//            return "redirect:/user/add"; // Rediriger vers la page d'ajout d'utilisateur après l'ajout réussi
-//        } else {
-//            User updatedUser = userService.save(user);
-//            redirectAttributes.addFlashAttribute("successMsg", "Changes for '" + user.getFirstName() + " " + user.getDisplayName() + "' are saved successfully.");
-//            return "redirect:/user/edit/" + updatedUser.getId(); // Rediriger vers la page d'édition d'utilisateur après la mise à jour réussie
-//        }
-//    }
+
+        }
+
+
+    }
 
 
     @RequestMapping(value = "/savepp", method = RequestMethod.POST)

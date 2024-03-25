@@ -28,6 +28,9 @@ public class IssueController {
 	public List<String> memberTypes() {
 		return Constants.MEMBER_TYPES;
 	}
+
+	@ModelAttribute(name = "userTypes")
+	public List<String> userTypes() { return Constants.USERS_TYPES; }
 	
 	@ModelAttribute("categories")
 	public List<Category> getCategories() {

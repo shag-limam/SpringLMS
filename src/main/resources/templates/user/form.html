@@ -211,8 +211,16 @@
 									</div>
 								</div>
 
+								<div class="form-group">
+									<label class="control-label col-md-3 col-sm-3 col-xs-12">User Type <span class="required">*</span></label>
+									<div class="col-md-2 col-sm-2 col-xs-12">
+										<select th:field="*{active}" class="form-control">
+											<option th:each="mt : ${userActive}" th:value="${mt}" th:text="${mt}"></option>
+										</select>
+									</div>
+								</div>
 
-
+								<input type="hidden" th:if="${id!=null}" th:field="*{id}" />
 								<div class="ln_solid"></div>
 								<div class="form-group">
 									<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -222,7 +230,7 @@
 										<th:block th:if="${id!=null}">
 											<button class="btn btn-primary" type="button" id="gotoListBtn" >Go to list page</button>
 										</th:block>
-										<button type="button" class="btn btn-success" id="saveBtn">Save</button>
+										<button type="submit" class="btn btn-success" id="saveBtn">Save</button>
 									</div>
 								</div>
 

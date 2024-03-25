@@ -92,6 +92,13 @@ public class Issue implements Serializable {
 		this.expectedReturnDate = expectedReturnDate;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public Member getMember() {
 		return member;
 	}
