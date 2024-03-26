@@ -11,5 +11,7 @@ import com.spark.lms.model.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 	public List<User> findAllByOrderByDisplayNameAsc();
 	public List<User> findAllByActiveOrderByDisplayNameAsc(Integer active);
+	//findAll ByOrderByFirstNameAsc MiddleNameAsc LastNameAsc
+	public List<User> findAllByOrderByFirstNameAscUsernameAscDisplayNameAsc();
 	public User findByUsername(String username);
 }

@@ -41,7 +41,7 @@
 								</thead>
 								<tbody>
 									<tr th:each="i : ${issues}">
-										<td th:text="${i.member.firstName + ' ' + i.member.middleName + ' ' + i.member.lastName}"></td>
+										<td th:text="${i.user.firstName + ' ' + i.user.username + ' ' + i.user.displayName}"></td>
 										<td>
 											<ul th:id="${'issue_' + i.id}">
 												<th:block th:each="ib : ${i.issuedBooks}">

@@ -27,6 +27,9 @@ public class UserService {
 	public List<User> getAllUsers() {
 		return userRepository.findAllByOrderByDisplayNameAsc();
 	}
+	public List<User> getAll() {
+		return userRepository.findAllByOrderByFirstNameAscUsernameAscDisplayNameAsc();
+	}
 	
 	
 	public List<User> getAllActiveUsers() { return
@@ -41,6 +44,9 @@ public class UserService {
 		return userRepository.findById(id).get();
 	}
 
+	public User get(Long id) {
+		return userRepository.findById(id).get();
+	}
 
 	public User addNew(User user) {
 		user.setPassword( passwordEncoder.encode(user.getPassword()) );
