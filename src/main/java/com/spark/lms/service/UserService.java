@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import com.spark.lms.common.Constants;
 import com.spark.lms.model.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -39,7 +40,21 @@ public class UserService {
 	public User getByUsername(String username) {
 		return userRepository.findByUsername(username);
 	}
-	
+
+
+
+	//************** - **********
+	public Long getTotalCount() {
+		return userRepository.count();
+	}
+
+	public Long getUsersCount() {return userRepository.countByRole(Constants.ROLE_USER);}
+
+	public Long getAdminsCount() {
+		return userRepository.countByRole(Constants.ROLE_ADMIN);
+	}
+
+	//************** - ****************
 	public User getById(Long id) {
 		return userRepository.findById(id).get();
 	}

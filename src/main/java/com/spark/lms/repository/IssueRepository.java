@@ -15,4 +15,5 @@ public interface IssueRepository extends JpaRepository<Issue, Long> {
 	public List<Issue> findByReturned(Integer returned);
 	public Long countByMemberAndReturned(Member member, Integer returned);
 	public Long countByUserAndReturned(User user, Integer returned);
+	List<Issue> findByUserIdAndReturned(Long userId, Integer returned);
 }

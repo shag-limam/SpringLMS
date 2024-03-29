@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Spark LMS - Register</title>
+    <title> LMS - Inscription</title>
 
     <th:block th:replace="fragments/styles :: common"></th:block>
 
@@ -16,28 +16,27 @@
     <div class="login_wrapper">
         <section class="login_content">
             <form th:action="@{/register}" method="post" id="registerform" th:object="${user}">
-                <h1>Register Form</h1>
+                <h1>Formulaire d'inscription</h1>
                 <div>
-                    <input type="text" th:field="*{firstName}" class="form-control" placeholder="first Name" th:required="true"/>
+                    <input type="text" th:field="*{firstName}" class="form-control" placeholder="Prénom" th:required="true"/>
                 </div>
                 <div>
-                    <input type="text" th:field="*{displayName}" class="form-control" placeholder="Full Name" th:required="true"/>
+                    <input type="text" th:field="*{displayName}" class="form-control" placeholder="Nom complet" th:required="true"/>
                 </div>
                 <div>
-                    <input type="text" th:field="*{username}" class="form-control" placeholder="Username" th:required="true"/>
+                    <input type="text" th:field="*{username}" class="form-control" placeholder="Nom d'utilisateur" th:required="true"/>
                 </div>
                 <div>
-                    <input type="password" th:field="*{password}" class="form-control" placeholder="Password" th:required="true"/>
+                    <input type="password" th:field="*{password}" class="form-control" placeholder="Mot de passe" th:required="true"/>
                 </div>
 
-
-                <!-- Add more fields as needed -->
+                <!-- Ajoutez plus de champs si nécessaire -->
 
                 <div class="ln_solid"></div>
                 <div class="form-group">
                     <div class="col-md-12 text-center">
-                        <button class="btn btn-primary" type="reset">Reset</button>
-                        <button type="submit" class="btn btn-success">Register</button>
+                        <button class="btn btn-primary" type="reset">Réinitialiser</button>
+                        <button type="submit" class="btn btn-success">S'inscrire</button>
                     </div>
                 </div>
 
@@ -45,15 +44,15 @@
 
                 <div class="separator">
                     <p class="change_link">
-                        Already have an account?
-                        <a href="/login" class="to_register"> Log in </a>
+                        Déjà un compte ?
+                        <a href="/login" class="to_register"> Se connecter </a>
                     </p>
 
                     <div class="clearfix"></div>
                     <br />
 
                     <div>
-                        <h1><i class="fa fa-paw"></i> Spark LMS</h1>
+                        <h1><i class="fa fa-bookmark"></i> LMS</h1>
                     </div>
                 </div>
             </form>
@@ -62,80 +61,3 @@
 </div>
 </body>
 </html>
-
-<!--<!DOCTYPE html>-->
-<!--<html xmlns="http://www.w3.org/1999/xhtml"-->
-<!--      xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
-<!--    <meta charset="utf-8">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
-<!--    <title>Spark LMS - User Registration</title>-->
-
-<!--    <th:block th:replace="fragments/styles :: common"></th:block>-->
-<!--</head>-->
-<!--<body>-->
-<!--<div class="container">-->
-<!--    <div class="row">-->
-<!--        <div class="col-md-6 col-md-offset-3">-->
-<!--            <div class="x_panel">-->
-<!--                <div class="x_title">-->
-<!--                    <h2>User Registration</h2>-->
-<!--                    <div class="clearfix"></div>-->
-<!--                </div>-->
-<!--                <div class="x_content">-->
-<!--                    <br />-->
-<!--                    <form id="user-registration-form" th:action="@{/register}" method="post" th:object="${user}" class="form-horizontal form-label-left">-->
-<!--                        &lt;!&ndash; Add fields for user registration (e.g., username, password, etc.) &ndash;&gt;-->
-<!--                        &lt;!&ndash; Modify the form fields and validation according to your User entity &ndash;&gt;-->
-
-<!--                        <div class="form-group">-->
-<!--                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="displayName">Full Name <span class="required">*</span></label>-->
-<!--                            <div class="col-md-9">-->
-<!--                                <input type="text" th:field="*{displayName}" class="form-control">-->
-<!--                            </div>-->
-<!--                            <div class="col-md-12 mt-5">-->
-<!--                                <span th:if="${#fields.hasErrors('displayName')}" th:errors="*{displayName}"></span>-->
-<!--                            </div>-->
-<!--                        </div>-->
-
-<!--                        <div class="form-group">-->
-<!--                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username">Username <span class="required">*</span></label>-->
-<!--                            <div class="col-md-9">-->
-<!--                                <input type="text" th:field="*{username}" class="form-control">-->
-<!--                            </div>-->
-<!--                            <div class="col-md-12 mt-5">-->
-<!--                                <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>-->
-<!--                            </div>-->
-<!--                        </div>-->
-
-<!--                        <div class="form-group">-->
-<!--                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">Password <span class="required">*</span></label>-->
-<!--                            <div class="col-md-9">-->
-<!--                                <input type="password" th:field="*{password}" class="form-control">-->
-<!--                            </div>-->
-<!--                            <div class="col-md-12 mt-5">-->
-<!--                                <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>-->
-<!--                            </div>-->
-<!--                        </div>-->
-
-<!--                        &lt;!&ndash; Add more fields as needed &ndash;&gt;-->
-
-<!--                        <div class="ln_solid"></div>-->
-<!--                        <div class="form-group">-->
-<!--                            <div class="col-md-12 text-center">-->
-<!--                                <button class="btn btn-primary" type="reset">Reset</button>-->
-<!--                                <button type="submit" class="btn btn-success">Register</button>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </form>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!--<th:block th:replace="fragments/scripts :: common"></th:block>-->
-<!--</body>-->
-<!--</html>-->

@@ -84,7 +84,7 @@ public class BookController {
 				return "redirect:/book/add";
 			}
 		} else {
-			Book updatedBook = bookService.save(book);
+			Book updatedBook = bookService.update(book);
 			redirectAttributes.addFlashAttribute("successMsg", "Changes for '" + book.getTitle() + "' are saved successfully. ");
 			return "redirect:/book/edit/"+updatedBook.getId();
 		}

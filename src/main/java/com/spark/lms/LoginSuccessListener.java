@@ -23,7 +23,16 @@ public class LoginSuccessListener implements ApplicationListener<AuthenticationS
 	public void onApplicationEvent(AuthenticationSuccessEvent event) {
         User user = (User) event.getAuthentication().getPrincipal();
         String displayName = userService.getByUsername( user.getUsername() ).getDisplayName();
+		String firstName = userService.getByUsername( user.getUsername() ).getFirstName();
+		String username = userService.getByUsername( user.getUsername() ).getUsername();
+		String role = userService.getByUsername( user.getUsername() ).getRole();
+		long idser = userService.getByUsername( user.getUsername() ).getId();
+
         httpSession.setAttribute("loggedInUserName", displayName);
+		httpSession.setAttribute("role", role);
+		httpSession.setAttribute("idser", idser);
+		httpSession.setAttribute("firstName", firstName);
+		httpSession.setAttribute("username", username);
 	}
 	
 }

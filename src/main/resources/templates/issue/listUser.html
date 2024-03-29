@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Spark LMS - Liste des Emprunts</title>
+	<title>LMS - Liste des Emprunts</title>
 
 	<th:block th:replace="fragments/styles :: common"></th:block>
 	<th:block th:replace="fragments/styles :: datatable"></th:block>
@@ -17,7 +17,7 @@
 <div class="container body">
 	<div class="main_container">
 
-		<th:block th:replace="fragments/sidemenu :: menu"></th:block>
+		<th:block th:replace="fragments/usersidemenu :: menu"></th:block>
 		<th:block th:replace="fragments/topmenu :: menu"></th:block>
 
 		<!-- contenu de la page -->
@@ -99,6 +99,6 @@
 
 <th:block th:replace="fragments/scripts :: common"></th:block>
 <th:block th:replace="fragments/scripts :: datatable"></th:block>
-<script th:src="@{/custom/js/issue/list.js}"></script>
+<script th:src="@{/custom/js/issue/listUser.js}"></script>
 </body>
 </html>

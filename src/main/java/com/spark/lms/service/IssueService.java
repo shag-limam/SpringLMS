@@ -29,7 +29,10 @@ public class IssueService {
 	public List<Issue> getAllUnreturned() {
 		return issueRepository.findByReturned( Constants.BOOK_NOT_RETURNED );
 	}
-	
+	public List<Issue> getAllUnreturnedForCurrentUser(Long userId) {
+		// Appeler la méthode du repository pour récupérer les problèmes non retournés de l'utilisateur spécifié
+		return issueRepository.findByUserIdAndReturned(userId, Constants.BOOK_NOT_RETURNED);
+	}
 	public Issue addNew(Issue issue) {
 		issue.setIssueDate( new Date() );
 		issue.setReturned( Constants.BOOK_NOT_RETURNED );

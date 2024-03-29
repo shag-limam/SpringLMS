@@ -57,14 +57,14 @@ public class CategoryController {
 			return "/category/form";
 		}
 
-		if( category.getId() == null ) {
+		if( category.getId() != null ) {
+			Category updateCategory = categoryService.update( category );
+			redirectAttributes.addFlashAttribute("successMsg", "Changes for '" + category.getName() + "' are saved successfully. ");
+			return "redirect:/category/edit/"+updateCategory.getId();
+		} else {
 			categoryService.addNew(category);
 			redirectAttributes.addFlashAttribute("successMsg", "'" + category.getName() + "' is added as a new category.");
 			return "redirect:/category/add";
-		} else {
-			Category updateCategory = categoryService.save( category );
-			redirectAttributes.addFlashAttribute("successMsg", "Changes for '" + category.getName() + "' are saved successfully. ");
-			return "redirect:/category/edit/"+updateCategory.getId();
 		}
 	}
 	

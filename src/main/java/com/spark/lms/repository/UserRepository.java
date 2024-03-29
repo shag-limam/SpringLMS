@@ -14,4 +14,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	//findAll ByOrderByFirstNameAsc MiddleNameAsc LastNameAsc
 	public List<User> findAllByOrderByFirstNameAscUsernameAscDisplayNameAsc();
 	public User findByUsername(String username);
+
+	public Long countByRole(String role);
 }

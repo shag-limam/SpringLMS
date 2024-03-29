@@ -1,5 +1,8 @@
 package com.spark.lms;
 
+import com.spark.lms.model.Category;
+import com.spark.lms.service.BookService;
+import com.spark.lms.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
@@ -14,6 +17,11 @@ public class ApplicationStartup implements ApplicationListener<ApplicationReadyE
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private CategoryService categoryService;
+
+    @Autowired
+    private BookService bookService;
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
@@ -25,8 +33,15 @@ public class ApplicationStartup implements ApplicationListener<ApplicationReadyE
 
         if( userService.getAllUsers().size() == 0) {
             userService.addNew(new User("Ad","Mr. Admin", "admin", "admin", Constants.ROLE_ADMIN));
-            userService.addNew(new User("Us","Mr. Librarian", "librarian", "librarian", Constants.ROLE_LIBRARIAN));
+            userService.addNew(new User("Us","Mr. Limam", "limam", "limam", Constants.ROLE_USER));
         }
+        if(categoryService.getAllBySort().size() == 0) {
+            categoryService.addNew(new Category("Fiction", "Fic", "This category is for fiction books."));
+            categoryService.addNew(new Category("Non-Fiction", "Fic", "This category is for non-fiction books."));
+            categoryService.addNew(new Category("Science", "Sci", "This category is for science books."));
+        }
+
+
 
     }
 }

@@ -2,6 +2,7 @@ package com.spark.lms.service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,7 +58,28 @@ public class BookService {
 		book.setStatus( Constants.BOOK_STATUS_AVAILABLE );
 		return bookRepository.save(book);
 	}
-	
+	public Book update(Book book) {
+		// Vérifiez si le livre existe déjà dans la base de données
+		Optional<Book> existingBook = bookRepository.findById(book.getId());
+		if (existingBook.isPresent()) {
+			// Mettez à jour les champs du livre existant avec les nouvelles valeurs
+			Book updatedBook = existingBook.get();
+			updatedBook.setTitle(book.getTitle());
+			updatedBook.setAuthors(book.getAuthors());
+			updatedBook.setPublisher(book.getPublisher());
+			updatedBook.setIsbn(book.getIsbn());
+			// Vous pouvez ajouter d'autres champs à mettre à jour ici
+
+			// Enregistrez le livre mis à jour dans la base de données
+			return bookRepository.save(updatedBook);
+		} else {
+			// Si le livre n'existe pas, vous pouvez choisir de renvoyer null ou de lever une exception
+			return null;
+			// Ou
+			// throw new EntityNotFoundException("Book not found with id: " + book.getId());
+		}
+	}
+
 	public Book save(Book book) {
 		return bookRepository.save(book);
 	}

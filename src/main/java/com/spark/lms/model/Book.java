@@ -23,6 +23,15 @@ public class Book implements Serializable {
 	/**
 	 * 
 	 */
+
+//	public Book() {
+//	}
+//	public Book(@NotNull String tag, @NotNull String title,@NotNull String authors) {
+//		super();
+//		this.title =title;
+//		this.tag = tag;
+//		this.authors = authors;
+//	}
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -55,7 +64,7 @@ public class Book implements Serializable {
 	private Integer status;
 
 	@Column(name = "create_date")
-	private Date createDate = new Date();
+	private Date createDate;
 
 	@JsonIgnore
 	@ManyToOne

@@ -29,6 +29,15 @@ public class Category implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	public Category() {
+
+	}
+	public Category(@NotNull String name,@NotNull String shortName, @NotNull String notes) {
+		super();
+		this.name =name;
+		this.shortName = shortName;
+		this.notes = notes;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
@@ -49,10 +58,9 @@ public class Category implements Serializable {
 	@Length(max = 1000, message = "*Must not exceed 1000 characters.")
 	private String notes;
 	
-//	@Column(name = "create_date")
-//	private Date createDate;
 	@Column(name = "create_date")
-	private Date createDate = new Date();
+	private Date createDate;
+
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
