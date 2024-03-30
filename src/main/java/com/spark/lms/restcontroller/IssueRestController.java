@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.spark.lms.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,7 +42,21 @@ public class IssueRestController {
 	
 	@Autowired
 	private IssuedBookService issuedBookService;
-	
+
+	@GetMapping("/list")
+	public List<Issue> listAllIssues() {
+		return issueService.getAll();
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Issue> getIssueById(@PathVariable Long id) {
+		Issue issue = issueService.get(id);
+		if (issue != null) {
+			return ResponseEntity.ok(issue);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
 	@RequestMapping(value="/save", method = RequestMethod.POST)
 	public String save(@RequestParam Map<String, String> payload) {
 		

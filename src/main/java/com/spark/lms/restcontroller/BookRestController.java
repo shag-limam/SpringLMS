@@ -27,7 +27,12 @@ public class BookRestController {
 	public List<Book> all() {
 		return bookService.getAll();
 	}
-	
+
+	@GetMapping("/{id}")
+	public Book getBookById(@PathVariable Long id) {
+		return bookService.get(id);
+	}
+
 	@GetMapping(value = "/{id}/list")
 	public List<Book> get(@PathVariable(name = "id") Long id) {
 		Category category = categoryService.get(id);

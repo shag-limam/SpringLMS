@@ -1,14 +1,18 @@
-# Use a base image with Java 17
-FROM openjdk:17
+# Utiliser une image de base avec OpenJDK et Tomcat
+FROM tomcat:9.0-jdk11-openjdk-slim
 
-# Copy the JAR package into the image
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
+# Supprimer l'application Tomcat par défaut
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Expose the application port
+# Copier le fichier WAR de l'application dans le répertoire webapps de Tomcat
+COPY target/*.war /usr/local/tomcat/webapps/ROOT.war
+
+# Exposer le port du serveur Tomcat (par défaut : 8080)
 EXPOSE 8091
 
-# Run the App
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+# Démarrer le serveur Tomcat
+CMD ["catalina.sh", "run"]
+
+
 
 
