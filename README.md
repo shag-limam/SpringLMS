@@ -51,3 +51,9 @@
 
 # Rendre le Livre(s)
 <img width="959" alt="image" src="https://github.com/shag-limam/SpringLMS/assets/84734216/9aa7aaa8-8887-4200-9089-60b2db7ac51a">
+
+# Liste des Livres interface user simple
+<img width="956" alt="image" src="https://github.com/shag-limam/SpringLMS/assets/84734216/41a46693-914a-45e6-9543-fcfc138949c5">
+
+# Emprunter des Livresinterface user simple
+<img width="959" alt="image" src="https://github.com/shag-limam/SpringLMS/assets/84734216/dbd13a03-c6e6-4323-97eb-99ad53255503">
