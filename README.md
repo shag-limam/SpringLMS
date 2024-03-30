@@ -12,3 +12,6 @@
 
 # Ajouter un nouvel utilisateur
 <img width="959" alt="image" src="https://github.com/shag-limam/SpringLMS/assets/84734216/71c883d3-8d43-4eef-bfee-3e400b4aef87">
+
+#Modifier les données de l'utilisateur
+<img width="959" alt="image" src="https://github.com/shag-limam/SpringLMS/assets/84734216/1b1ff587-6b8a-4428-bbc1-f6d323c6fd96">
