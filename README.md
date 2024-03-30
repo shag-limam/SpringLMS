@@ -27,3 +27,27 @@
 
 # Edit Category Data
 <img width="959" alt="image" src="https://github.com/shag-limam/SpringLMS/assets/84734216/55edf6fe-4762-4fc1-b638-7751d693f01f">
+
+# Supprimer la catégorie
+<img width="959" alt="image" src="https://github.com/shag-limam/SpringLMS/assets/84734216/f183f0bb-2f8f-44dd-aed7-272aa8f91c8c">
+
+# Liste des Livres
+<img width="959" alt="image" src="https://github.com/shag-limam/SpringLMS/assets/84734216/a8204c54-a5e0-45bf-b161-a62504f1d2e0">
+
+# Ajouter un nouveau livre
+<img width="959" alt="image" src="https://github.com/shag-limam/SpringLMS/assets/84734216/f8dfbc64-952d-4175-90a5-95f840fd302c">
+
+# Modifier les données du livre
+<img width="959" alt="image" src="https://github.com/shag-limam/SpringLMS/assets/84734216/1a3341f7-cfbf-4bc4-a7b6-f800b9424716">
+
+# Supprimer le Livre
+<img width="959" alt="image" src="https://github.com/shag-limam/SpringLMS/assets/84734216/8c89a9cc-8d84-496c-936d-21ccb861227c">
+
+# Emprunter des Livres
+<img width="959" alt="image" src="https://github.com/shag-limam/SpringLMS/assets/84734216/c84c70a9-44c5-4d3a-918a-54dc09072da9">
+
+# Liste des Emprunts
+<img width="959" alt="image" src="https://github.com/shag-limam/SpringLMS/assets/84734216/3c2c1ed9-b349-409a-a340-a20ca5471786">
+
+# Rendre le Livre(s)
+<img width="959" alt="image" src="https://github.com/shag-limam/SpringLMS/assets/84734216/9aa7aaa8-8887-4200-9089-60b2db7ac51a">
