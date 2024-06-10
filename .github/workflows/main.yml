@@ -18,7 +18,7 @@ jobs:
     - name: Make changes
       run: |
         # Your script or commands to modify files
-        echo "Some changes" >> server.js
+        echo "commit 0 */3 * * * Some changes" >> file.txt
 
     - name: Commit and push changes
       uses: stefanzweifel/git-auto-commit-action@v4
